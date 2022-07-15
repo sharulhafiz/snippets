@@ -1,0 +1,21 @@
+<style>
+	#video-montaj {display:none}
+</style>
+<script>
+	$( document ).ready(function() {
+		
+		$("#button-mula").click(function(e){
+			e.preventDefault();
+			$("#button-mula").hide();
+			$("#video-montaj").show();
+			//$('.et_pb_video_box video').trigger('play');
+			var elem = document.getElementsByTagName('video')[0];
+			var fullscreen = elem.webkitRequestFullscreen || elem.mozRequestFullScreen || elem.msRequestFullscreen;
+			fullscreen.call(elem); // bind the 'this' from the video object and instantiate the correct fullscreen method.
+			elem.play();
+    		console.log( "ready!" );
+			/* Get the element you want displayed in fullscreen mode (a video in this example): */
+		});
+	
+});
+</script>
