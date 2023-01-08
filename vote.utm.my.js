@@ -36,17 +36,25 @@ $(document).on('ready pjax:scriptcomplete',function(){
     			}
     			
     			// If the checked count is greater than 12, disable all remaining checkboxes
-                if (checkedCount > jumlahcalon-1) {
+                if (selectedCount > jumlahcalon-1) {
                   checkboxes.forEach((cb) => {
                     if (!cb.checked) {
                       cb.disabled = true;
                     }
                   });
+                  submitButton.disabled = true;
                 } else {
                   // Otherwise, enable all checkboxes
                   checkboxes.forEach((cb) => {
                     cb.disabled = false;
                   });
+                  submitButton.disabled = true;
+                }
+                
+                if (selectedCount == jumlahcalon){
+                    submitButton.disabled = false;
+                } else {
+                    submitButton.disabled = true;
                 }
     
     			// Update the page to reflect the current number of selected checkboxes
